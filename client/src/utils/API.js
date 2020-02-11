@@ -6,7 +6,7 @@ export default {
         return axios.get("/api/heroes");
     },
     //Get the hero with the matching ID
-    getHeroes: function(id) {
+    getHero: function(id) {
         return axios.get("/api/heroes" + id);
     },
     //Delete the hero by the ID

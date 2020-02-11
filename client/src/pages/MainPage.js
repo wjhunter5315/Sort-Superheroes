@@ -9,12 +9,13 @@ function MainPage() {
 
     useEffect(() =>{
         loadHeroes()
-    }, []);
+    }, [])
 
     function loadHeroes() {
         API.getHeroes()
             .then(res => 
-                setHeroes(res.data))
+                setHeroes(res.data)
+            )
             .catch(err => console.log(err));
     };
 
@@ -38,17 +39,24 @@ function MainPage() {
 
     return (
         <div>
-            {heroes.lenght ? (
+            {heroes.map(heroes => (
+                <Table
+                    realName={heroes.realName}
+                    alias={heroes.alias}
+                    team={heroes.team}
+                />
+            ))}
+            {/* {heroes.length ? (
             <Container>
                 {heroes.map(hero => (
-                    <Item>
-                        {hero.realName}
+                    <Item key={hero._id}>
+                        {hero.realName}, {hero.alias}, {hero.team}
                     </Item>
                 ))}
             </Container>
             ) : (
                 <h3>No Heroes to Show</h3>
-            )}
+            )} */}
             <form>
             <Input
                 onChange={handleInputChange}
