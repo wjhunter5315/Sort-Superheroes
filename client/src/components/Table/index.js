@@ -1,28 +1,32 @@
 import React from "react";
 
-function Table(props) {
+export function HeroTable({ children }) {
     return (
-        <div className="table table-striped">
-            <thread>
+        <table className="table table-striped table-bordered">
+            <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    
                     <th scope="col">Real Name</th>
                     <th scope="col">Alias</th>
                     <th scope="col">Team</th>
                 </tr>
-            </thread>
+            </thead>
             <tbody>
-                <tr>
-                    <th scope="row"> {props.id} </th>
-                    <td> {props.realName} </td>
-                    <td> {props.alias} </td>
-                    <td> {props.team} </td>
-                </tr>
+                {children}
             </tbody>
-        </div>
-    )
+        </table>
+    );
 };
-export default Table;
+
+export function TableItem(props) {
+    return (
+        <tr>
+            <td>{props.realName}</td>
+            <td>{props.alias}</td>
+            <td>{props.team}</td>
+        </tr>
+    );
+};
 
 export function Container({ children }) {
     return (

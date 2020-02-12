@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Table, { Container, Item } from "../components/Table";
+import { Container, Item, HeroTable, TableItem } from "../components/Table";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 
@@ -38,25 +38,24 @@ function MainPage() {
     };
 
     return (
-        <div>
-            {heroes.map(heroes => (
-                <Table
-                    realName={heroes.realName}
-                    alias={heroes.alias}
-                    team={heroes.team}
-                />
-            ))}
-            {/* {heroes.length ? (
-            <Container>
-                {heroes.map(hero => (
-                    <Item key={hero._id}>
-                        {hero.realName}, {hero.alias}, {hero.team}
-                    </Item>
-                ))}
-            </Container>
+        <div className="row">
+        <div className="col-md-8">
+            {heroes.length ? (
+                <HeroTable>
+                    {heroes.map(hero => (
+                        <TableItem
+                            realName={hero.realName}
+                            alias={hero.alias}
+                            team={hero.team}
+                        />
+                    ))}
+                </HeroTable>
             ) : (
                 <h3>No Heroes to Show</h3>
-            )} */}
+            )}
+            
+        </div>
+        <div className="col-md-4">
             <form>
             <Input
                 onChange={handleInputChange}
@@ -81,7 +80,21 @@ function MainPage() {
             </FormBtn>
             </form>
         </div>
+        </div>
     )
 };
 
 export default MainPage;
+
+//CAN BE USED TO SHOW LIST OF HEROES RATHER THAN TABLE
+// {heroes.length ? (
+//     <Container>
+//         {heroes.map(hero => (
+//             <Item key={hero._id}>
+//                 {hero.realName} | {hero.alias} | {hero.team}
+//             </Item>
+//         ))}
+//     </Container>
+//     ) : (
+//         <h3>No Heroes to Show</h3>
+// )}
