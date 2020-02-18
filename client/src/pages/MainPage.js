@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Container, Item, HeroTable, TableItem } from "../components/Table";
 import { Input, FormBtn } from "../components/Form";
+import { DeleteBtn } from "../components/Buttons";
 import API from "../utils/API";
 
 function MainPage() {
     const [heroes, setHeroes] = useState([]);
     const [formObject, setFormObject] = useState([]);
-
+    
+    
     useEffect(() =>{
         loadHeroes()
     }, [])
@@ -16,6 +18,12 @@ function MainPage() {
             .then(res => 
                 setHeroes(res.data)
             )
+            .catch(err => console.log(err));
+    };
+
+    function deleteHero(id) {
+        API.deleteHero(id)
+            .then(res => loadHeroes())
             .catch(err => console.log(err));
     };
 
@@ -37,6 +45,11 @@ function MainPage() {
         }
     };
 
+    // function heroSelect(e) {
+    //     e.preventDefault();
+
+    // }
+
     return (
         <div className="row">
         <div className="col-md-8">
@@ -46,8 +59,9 @@ function MainPage() {
                         <TableItem
                             realName={hero.realName}
                             alias={hero.alias}
-                            team={hero.team}
-                        />
+                            team={hero.team} >
+                        </TableItem>
+                        
                     ))}
                 </HeroTable>
             ) : (

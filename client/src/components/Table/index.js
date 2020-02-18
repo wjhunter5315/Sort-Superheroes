@@ -1,29 +1,33 @@
 import React from "react";
+import { DeleteBtn } from "../Buttons";
 
 export function HeroTable({ children }) {
     return (
-        <table className="table table-striped table-bordered">
+        <table className="table table-bordered table-hover">
             <thead>
                 <tr>
                     
                     <th scope="col">Real Name</th>
                     <th scope="col">Alias</th>
                     <th scope="col">Team</th>
+                    <th scope="col">Remove</th>
                 </tr>
             </thead>
             <tbody>
                 {children}
+                
             </tbody>
         </table>
     );
 };
 
 export function TableItem(props) {
+    
     return (
-        <tr>
-            <td>{props.realName}</td>
-            <td>{props.alias}</td>
-            <td>{props.team}</td>
+        <tr className="heroTableItem">
+            <td id="heroName">{props.realName}</td>
+            <td id="heroAlias">{props.alias}</td>
+            <td id="heroTeam">{props.team}</td>
         </tr>
     );
 };
