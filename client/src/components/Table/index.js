@@ -1,12 +1,12 @@
 import React from "react";
-import { DeleteBtn } from "../Buttons";
+// import { DeleteBtn } from "../Buttons";
 
 export function HeroTable({ children }) {
     return (
         <table className="table table-bordered table-hover">
             <thead>
                 <tr>
-                    
+                    <th scope="col">ID</th>
                     <th scope="col">Real Name</th>
                     <th scope="col">Alias</th>
                     <th scope="col">Team</th>
@@ -25,6 +25,7 @@ export function TableItem(props) {
     
     return (
         <tr className="heroTableItem">
+            <td key="heroId">{props._id}</td>
             <td id="heroName">{props.realName}</td>
             <td id="heroAlias">{props.alias}</td>
             <td id="heroTeam">{props.team}</td>

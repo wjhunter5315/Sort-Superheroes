@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Container, Item, HeroTable, TableItem } from "../components/Table";
+import { HeroTable, TableItem } from "../components/Table";
 import { Input, FormBtn } from "../components/Form";
-import { DeleteBtn } from "../components/Buttons";
+// import { DeleteBtn } from "../components/Buttons";
 import API from "../utils/API";
 
 function MainPage() {
@@ -19,13 +19,14 @@ function MainPage() {
                 setHeroes(res.data)
             )
             .catch(err => console.log(err));
+            console.log()
     };
 
-    function deleteHero(id) {
-        API.deleteHero(id)
-            .then(res => loadHeroes())
-            .catch(err => console.log(err));
-    };
+    // function deleteHero(id) {
+    //     API.deleteHero(id)
+    //         .then(res => loadHeroes())
+    //         .catch(err => console.log(err));
+    // };
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -57,6 +58,7 @@ function MainPage() {
                 <HeroTable>
                     {heroes.map(hero => (
                         <TableItem
+                            key={hero._id}
                             realName={hero.realName}
                             alias={hero.alias}
                             team={hero.team} >

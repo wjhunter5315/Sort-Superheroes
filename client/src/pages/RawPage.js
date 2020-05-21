@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import API from "../utils/API";
+
 const heroes = [
     {
        realName: "Tony Stark",
@@ -53,40 +55,78 @@ const heroes = [
 ];
 
 function RawPage() {
-    let avengersHeros = heroes.filter(function(hero) {
-        return hero.team == "Avengers";
-    });
-    console.log(avengersHeros);
+
     //returns array of objects containing Avengers team members
-    var i;
-    for (i = 0; i < avengersHeros.length; i++) {
-        console.log(avengersHeros[i].realName)
-    }
+    let avengersHeroes = heroes.filter(function(hero) {
+        return hero.team === "Avengers";
+    });
+    console.log(avengersHeroes);
+    
     //returns individual Avengers real names
+    var i;
+    for (i = 0; i < avengersHeroes.length; i++) {
+        console.log(avengersHeroes[i].realName)
+    };
 
     let xmenHeroes = heroes.filter(function(hero) {
-        return hero.team == "X-Men";
+        return hero.team === "X-Men";
     });
     console.log(xmenHeroes);
-    var i;
-    for (i = 0; i < xmenHeroes.length; i++) {
-        console.log(xmenHeroes[i].realName)
-    }
+    var j;
+    for (j = 0; j < xmenHeroes.length; j++) {
+        console.log(xmenHeroes[j].realName)
+    };
 
     let defendersHeroes = heroes.filter(function(hero) {
-        return hero.team == "Defenders";
+        return hero.team === "Defenders";
     });
     console.log(defendersHeroes);
-    var i;
-    for (i = 0; i < defendersHeroes.length; i++) {
-        console.log(defendersHeroes[i].realName)
+    var k;
+    for (k = 0; k < defendersHeroes.length; k++) {
+        console.log(defendersHeroes[k].realName)
+    };
+
+    const [avengersState, setAvengersState] = useState(avengersHeroes);
+    function filterAvengers(e) {
+        e.preventDefault();
+        setAvengersState(avengersHeroes);
+        console.log(avengersState);
+    };
+
+    const [xmenState, setXmenState] = useState(xmenHeroes);
+    function filterXmen(e) {
+        e.preventDefault();
+        setXmenState(xmenHeroes);
+        console.log(xmenState);
+    };
+
+    const [defendersState, setDefendersState] = useState(defendersHeroes);
+    function filterDefenders(e) {
+        e.preventDefault();
+        setDefendersState(defendersHeroes);
+        console.log(defendersState)
     }
 
     return (
         <div>
-            <ul className='list-group'>
-            
-            </ul>
+            <button 
+                type="button" 
+                className="btn btn-outline-primary"
+                onClick={filterAvengers}>
+                    Avengers
+            </button>
+            <button 
+                type="button" 
+                className="btn btn-outline-warning"
+                onClick={filterXmen}>
+                    X-Men
+            </button>
+            <button 
+                type="button" 
+                className="btn btn-outline-success"
+                onClick={filterDefenders}>
+                    Defenders
+            </button>
         </div>
     );
 }
