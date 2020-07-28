@@ -2,7 +2,7 @@ import React from "react";
 
 export function DeleteBtn(props) {
     return (
-        <span className="delete-btn" {...props} role="button" tabIndex="0">
+        <span type="button" className="delete-btn" {...props} role="button" tabIndex="0">
             X
         </span>
     );

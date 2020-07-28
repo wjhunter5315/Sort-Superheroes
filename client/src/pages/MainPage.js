@@ -4,6 +4,7 @@ import { Input, FormBtn } from "../components/Form";
 // import { DeleteBtn } from "../components/Buttons";
 import API from "../utils/API";
 
+
 function MainPage() {
     const [heroes, setHeroes] = useState([]);
     const [formObject, setFormObject] = useState([]);
@@ -19,7 +20,6 @@ function MainPage() {
                 setHeroes(res.data)
             )
             .catch(err => console.log(err));
-            console.log()
     };
 
     // function deleteHero(id) {
@@ -50,7 +50,9 @@ function MainPage() {
 
 //get all heroes and list their alias in the console
     var i;
-    var allHeroList ="";
+    var allHeroList = "";
+    var allHeroesKeys = "";
+
     function allHeroes() {
         const teamAll = heroes.filter(function(hero) {
             return hero.team === "Avengers" || "Defenders" || "Fantastic Four" || "X-Men";
@@ -59,6 +61,10 @@ function MainPage() {
             allHeroList += teamAll[i].alias + ", ";
         };
         console.log(allHeroList);
+        for (i = 0; i < teamAll.length; i++) {
+            allHeroesKeys += teamAll[i]._id + ", ";
+        };
+        console.log(allHeroesKeys);
     };
     allHeroes();
 
@@ -102,7 +108,7 @@ function MainPage() {
     var defendersHeroList = "";
     function defendersHeroes() {
         const teamDefenders = heroes.filter((hero) => {
-            return hero.team == "Defenders";
+            return hero.team === "Defenders";
         });
         for (i = 0; i < teamDefenders.length; i++) {
             defendersHeroList += teamDefenders[i].alias + ", ";
@@ -115,12 +121,13 @@ function MainPage() {
         <div className="col-md-8">
             {heroes.length ? (
                 <HeroTable>
-                    {heroes.map(hero => (
+                    {heroes.map((hero) => (
                         <TableItem
                             key={hero._id}
+                            _id={hero._id}
                             realName={hero.realName}
                             alias={hero.alias}
-                            team={hero.team} >
+                            team={hero.team}>
                         </TableItem>
                         
                     ))}

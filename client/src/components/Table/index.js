@@ -1,5 +1,12 @@
 import React from "react";
 // import { DeleteBtn } from "../Buttons";
+// import API from "../../utils/API";
+
+// function deleteHero(_id) {
+//     API.deleteHero(_id)
+//         .then(res => loadHeroes())
+//         .catch(err => console.log(err));
+// };
 
 export function HeroTable({ children }) {
     return (
