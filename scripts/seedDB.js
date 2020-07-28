@@ -54,7 +54,22 @@ const heroSeed = [
     {
         realName: "Danny Rand",
         alias: "Iron Fist",
-        team: "Defender"
+        team: "Defenders"
+    },
+    {
+        realName: "Reed Richards",
+        alias: "Mr. Fantastic",
+        team: "Fantastic Four"
+    },
+    {
+        realName: "Sue Storm",
+        alias: "Invisible Woman",
+        team: "Fantastic Four"
+    },
+    {
+        realName: "Johnny Storm",
+        alias: "Human Torch",
+        team: "Fantastic Four"
     }
 ];
 

@@ -29,6 +29,7 @@ export function TableItem(props) {
             <td id="heroName">{props.realName}</td>
             <td id="heroAlias">{props.alias}</td>
             <td id="heroTeam">{props.team}</td>
+            <td type="button" className="btn btn-danger">Remove</td>
         </tr>
     );
 };

@@ -43,13 +43,72 @@ function MainPage() {
             })
             .then(res => loadHeroes())
             .catch(err => console.log(err));
+            alert("Hero Added");
+            window.location.reload();
         }
     };
 
-    // function heroSelect(e) {
-    //     e.preventDefault();
+//get all heroes and list their alias in the console
+    var i;
+    var allHeroList ="";
+    function allHeroes() {
+        const teamAll = heroes.filter(function(hero) {
+            return hero.team === "Avengers" || "Defenders" || "Fantastic Four" || "X-Men";
+        });
+        for (i = 0; i < teamAll.length; i++) {
+            allHeroList += teamAll[i].alias + ", ";
+        };
+        console.log(allHeroList);
+    };
+    allHeroes();
 
-    // }
+//get only Avengers heroes and list their alias in the console
+    var avengersHeroList = "";
+    function avengersHeroes() {
+        const teamAvengers = heroes.filter((hero) => {
+            return hero.team === "Avengers";
+        });
+        for (i = 0; i < teamAvengers.length; i++) {
+            avengersHeroList += teamAvengers[i].alias + ", ";
+        };
+        console.log(avengersHeroList);
+    };
+
+//get only X-men
+    var xmenHeroList = "";
+    function xmenHeroes() {
+        const teamXmen = heroes.filter((hero) => {
+            return hero.team === "X-Men";
+        });
+        for (i = 0; i < teamXmen.length; i++) {
+            xmenHeroList += teamXmen[i].alias + ", ";
+        };
+        console.log(xmenHeroList);
+    };
+
+//get only Fantastic Four
+    var fantasticFourHeroList = "";
+    function fantasticFourHeroes() {
+        const teamFantasticFour = heroes.filter((hero) => {
+            return hero.team === "Fantastic Four";
+        });
+        for (i = 0; i < teamFantasticFour.length; i++) {
+            fantasticFourHeroList += teamFantasticFour[i].alias + ", ";
+        };
+        console.log(fantasticFourHeroList);
+    };
+
+//get only Defenders
+    var defendersHeroList = "";
+    function defendersHeroes() {
+        const teamDefenders = heroes.filter((hero) => {
+            return hero.team == "Defenders";
+        });
+        for (i = 0; i < teamDefenders.length; i++) {
+            defendersHeroList += teamDefenders[i].alias + ", ";
+        };
+        console.log(defendersHeroList);
+    };
 
     return (
         <div className="row">
@@ -95,7 +154,35 @@ function MainPage() {
                 Add Hero
             </FormBtn>
             </form>
+            <br></br>
+            <div>
+            <button 
+                type="button" 
+                className="btn btn-primary"
+                onClick={avengersHeroes}>
+                    Avengers
+            </button>
+            <button 
+                type="button" 
+                className="btn btn-warning"
+                onClick={xmenHeroes}>
+                    X-Men
+            </button>
+            <button 
+                type="button" 
+                className="btn btn-success"
+                onClick={fantasticFourHeroes}>
+                    Fantastic Four
+            </button>
+            <button 
+                type="button" 
+                className="btn btn-danger"
+                onClick={defendersHeroes}>
+                    Defenders
+            </button>
         </div>
+        </div>
+        
         </div>
     )
 };
