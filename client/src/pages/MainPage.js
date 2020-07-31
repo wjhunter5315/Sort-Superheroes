@@ -3,7 +3,7 @@ import { HeroTable, TableItem } from "../components/Table";
 import { Input, FormBtn } from "../components/Form";
 // import { DeleteBtn } from "../components/Buttons";
 import API from "../utils/API";
-
+// import { Link, useParams } from "react-router-dom";
 
 function MainPage() {
     const [heroes, setHeroes] = useState([]);
@@ -129,7 +129,6 @@ function MainPage() {
                             alias={hero.alias}
                             team={hero.team}>
                         </TableItem>
-                        
                     ))}
                 </HeroTable>
             ) : (

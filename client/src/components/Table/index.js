@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import { DeleteBtn } from "../Buttons";
 // import API from "../../utils/API";
 
@@ -17,7 +18,7 @@ export function HeroTable({ children }) {
                     <th scope="col">Real Name</th>
                     <th scope="col">Alias</th>
                     <th scope="col">Team</th>
-                    <th scope="col">Remove</th>
+                    <th scope="col">Info Page</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +37,11 @@ export function TableItem(props) {
             <td id="heroName">{props.realName}</td>
             <td id="heroAlias">{props.alias}</td>
             <td id="heroTeam">{props.team}</td>
-            <td type="button" className="btn btn-danger">Remove</td>
+            <td type="button" className="btn btn-info">
+                <Link to={"/heroes/" + props._id}>
+                    View
+                </Link>
+            </td>
         </tr>
     );
 };

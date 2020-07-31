@@ -7,11 +7,11 @@ export default {
     },
     //Get the hero with the matching ID
     getHero: function(id) {
-        return axios.get("/api/heroes" + id);
+        return axios.get("/api/heroes/" + id);
     },
     //Delete the hero by the ID
     deleteHero: function(id) {
-        return axios.delete("/api/heroes" + id);
+        return axios.delete("/api/heroes/" + id);
     },
     //Save a new hero to the database
     saveHero: function(heroData) {
