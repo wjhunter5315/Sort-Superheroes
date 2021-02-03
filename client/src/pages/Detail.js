@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import API from "../utils/API";
 
 function Detail() {
@@ -26,6 +26,11 @@ function Detail() {
             Alias: {hero.alias}
             <br></br>
             Team: {hero.team}
+            <br></br>
+            <button type="button" className="btn btn-warning">
+               <Link to={"/"}>Back</Link>
+            </button>
+
          </h1>
       </div>
    );

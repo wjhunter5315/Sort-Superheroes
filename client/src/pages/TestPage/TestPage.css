@@ -1,0 +1,17 @@
+
+
+.li {
+   background-color: lightslategray;
+   color: black;
+   border-style: outset;
+   border-radius: 6px;
+   text-align: center;
+   padding: 6px;
+   margin: 4px;
+   width: 8%;
+}
+
+.li:hover {
+   background-color: aquamarine;
+   color: black;
+}
